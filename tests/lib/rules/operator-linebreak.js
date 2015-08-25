@@ -41,6 +41,9 @@ ruleTester.run("operator-linebreak", rule, {
         "'a' +\n 'b\\\n'",
         "(a\n) + b",
 
+        {code: "a ? 1 + 1\n:2", options: [null, { overrides: {"?": "after"}}]},
+        {code: "a ?\n1 +\n 1\n:2", options: [null, { overrides: {"?": "after"}}]},
+
         {code: "1\n+ 1", options: ["before"]},
         {code: "1 + 1\n+ 1", options: ["before"]},
         {code: "f(1\n+ 1)", options: ["before"]},
